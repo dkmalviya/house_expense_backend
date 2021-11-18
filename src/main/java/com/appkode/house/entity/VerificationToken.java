@@ -1,4 +1,4 @@
-package com.appkode.house.model.entity;
+package com.appkode.house.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,12 +9,12 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "password_reset_token")
+@Table(name = "verification_token")
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-public class PasswordForgotToken {
+public class VerificationToken {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

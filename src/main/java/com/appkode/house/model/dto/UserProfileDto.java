@@ -1,24 +1,29 @@
-package com.appkode.house.model.response.user;
+package com.appkode.house.model.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-public class UserProfileResponse {
+public class UserProfileDto {
+
+    private Long memberId;
     private String email;
     private String firstName;
     private String middleName;
     private String lastName;
     private String gender;
-    private String dateOfBirth;
     private String maritalStatus;
-    private boolean isNotificationEnable;
     private boolean isActiveProfile;
     private String mobile;
     private String imageUrl;
+    private boolean isAdminOfHouse;
+    private boolean isActiveMember;
+    private Date startDate;
+    private Date endDate;
 
 }
-

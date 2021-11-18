@@ -1,7 +1,7 @@
-package com.appkode.house.controller;
+package com.appkode.house.controller.secure;
 
 import com.appkode.house.model.request.user.UserProfileRequest;
-import com.appkode.house.model.response.user.GenericResponse;
+import com.appkode.house.model.response.generic.GenericResponse;
 import com.appkode.house.model.response.user.UserProfileResponse;
 import com.appkode.house.services.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-@Controller
+@RestController
 @RequestMapping("/api/user")
 public  class SecureUserController {
 

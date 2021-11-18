@@ -1,7 +1,7 @@
 package com.appkode.house.services;
 
-import com.appkode.house.model.entity.User;
-import com.appkode.house.model.entity.UserProfile;
+import com.appkode.house.entity.User;
+import com.appkode.house.entity.UserProfile;
 import com.appkode.house.model.request.user.PasswordResetRequest;
 import com.appkode.house.model.request.user.RegisterUserRequest;
 import com.appkode.house.model.request.user.UserProfileRequest;
@@ -28,6 +28,7 @@ public interface UserProfileService {
     UserProfileResponse fetchUserProfile();
 
     UserProfile getUserProfile();
+    UserProfile getUserProfileById(Long id);
 
 
 

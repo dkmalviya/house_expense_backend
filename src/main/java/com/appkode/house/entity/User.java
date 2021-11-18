@@ -1,4 +1,4 @@
-package com.appkode.house.model.entity;
+package com.appkode.house.entity;
 
 
 import lombok.Getter;

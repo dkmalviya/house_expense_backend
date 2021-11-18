@@ -2,9 +2,9 @@ package com.appkode.house.services;
 
 import com.appkode.house.error.exception.InvalidArgumentException;
 import com.appkode.house.error.exception.ResourceNotFoundException;
-import com.appkode.house.model.entity.PasswordForgotToken;
-import com.appkode.house.model.entity.User;
-import com.appkode.house.model.entity.VerificationToken;
+import com.appkode.house.entity.PasswordForgotToken;
+import com.appkode.house.entity.User;
+import com.appkode.house.entity.VerificationToken;
 import com.appkode.house.model.event.OnPasswordForgotRequestEvent;
 import com.appkode.house.model.event.OnRegistrationCompleteEvent;
 import com.appkode.house.model.request.user.PasswordForgotValidateRequest;

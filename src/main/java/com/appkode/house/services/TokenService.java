@@ -1,7 +1,7 @@
 package com.appkode.house.services;
 
-import com.appkode.house.model.entity.User;
-import com.appkode.house.model.entity.VerificationToken;
+import com.appkode.house.entity.User;
+import com.appkode.house.entity.VerificationToken;
 import com.appkode.house.model.request.user.PasswordForgotValidateRequest;
 
 

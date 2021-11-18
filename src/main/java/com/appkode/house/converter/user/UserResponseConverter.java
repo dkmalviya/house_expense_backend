@@ -1,6 +1,6 @@
 package com.appkode.house.converter.user;
 
-import com.appkode.house.model.entity.User;
+import com.appkode.house.entity.User;
 import com.appkode.house.model.response.user.UserProfileResponse;
 import org.springframework.stereotype.Component;
 

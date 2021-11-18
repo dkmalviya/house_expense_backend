@@ -1,7 +1,7 @@
 package com.appkode.house.model.event;
 
 
-import com.appkode.house.model.entity.User;
+import com.appkode.house.entity.User;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;

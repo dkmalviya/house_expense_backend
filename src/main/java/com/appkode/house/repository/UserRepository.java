@@ -1,6 +1,6 @@
 package com.appkode.house.repository;
 
-import com.appkode.house.model.entity.User;
+import com.appkode.house.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

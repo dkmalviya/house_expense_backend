@@ -17,7 +17,7 @@ spring:
       maximum-pool-size: 5
       minimum-idle: 2
       pool-name: data-source
-    url: jdbc:mysql://localhost:3306/expense_planner_db?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/expense_planner_db?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
     password: anshuSoft
     username: root
   jackson:

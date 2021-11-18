@@ -4,8 +4,8 @@ import com.appkode.house.converter.user.UserProfileResponseConverter;
 import com.appkode.house.converter.user.UserResponseConverter;
 import com.appkode.house.error.exception.InvalidArgumentException;
 import com.appkode.house.error.exception.ResourceNotFoundException;
-import com.appkode.house.model.entity.User;
-import com.appkode.house.model.entity.UserProfile;
+import com.appkode.house.entity.User;
+import com.appkode.house.entity.UserProfile;
 import com.appkode.house.model.request.user.PasswordResetRequest;
 import com.appkode.house.model.request.user.RegisterUserRequest;
 import com.appkode.house.model.request.user.UserProfileRequest;
@@ -69,7 +69,8 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     @Override
     public User getUser() {
-        return null;
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+        return findByEmail(userName);
     }
 
 
@@ -103,6 +104,17 @@ public class UserProfileServiceImpl implements UserProfileService {
         return userProfile;
     }
 
+    @Override
+    public UserProfile getUserProfileById(Long id) {
+        User user = userRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("User not found"));;
+
+        System.out.println(user);
+        UserProfile userProfile = userProfileRepository.findByEmail(user.getEmail());
+        System.out.println(userProfile);
+
+        return userProfile;
+    }
+
     /*@Override
     public Long getUserId() {
 
@@ -112,12 +124,10 @@ public class UserProfileServiceImpl implements UserProfileService {
     }*/
 
 
-
     @Override
     public void resetPassword(PasswordResetRequest passwordResetRequest) {
 
     }
-
 
 
     @Override
@@ -214,11 +224,6 @@ public class UserProfileServiceImpl implements UserProfileService {
         return userProfileResponseConverter.apply(userProfile);
 
     }
-
-
-
-
-
 
 
     @Override

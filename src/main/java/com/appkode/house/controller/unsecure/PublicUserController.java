@@ -1,12 +1,12 @@
-package com.appkode.house.controller;
+package com.appkode.house.controller.unsecure;
 
-import com.appkode.house.model.entity.User;
-import com.appkode.house.model.entity.VerificationToken;
+import com.appkode.house.entity.User;
+import com.appkode.house.entity.VerificationToken;
 import com.appkode.house.model.request.user.PasswordResetRequest;
 import com.appkode.house.model.request.user.RegisterUserRequest;
 import com.appkode.house.model.request.user.UserProfileRequest;
 import com.appkode.house.model.request.user.ValidateEmailRequest;
-import com.appkode.house.model.response.user.GenericResponse;
+import com.appkode.house.model.response.generic.GenericResponse;
 import com.appkode.house.model.response.user.UserProfileResponse;
 import com.appkode.house.services.TokenService;
 import com.appkode.house.services.UserProfileService;
@@ -75,14 +75,6 @@ public class PublicUserController extends PublicApiController {
         userProfileService.resetPassword(passwordResetRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-
-
-
-
-
-
-
 
 
 }
