@@ -1,7 +1,6 @@
 package com.appkode.house.controller.secure;
 
 import com.appkode.house.model.request.income_source.IncomeSourceRequest;
-import com.appkode.house.model.response.generic.GenericResponse;
 import com.appkode.house.model.response.income_source.IncomeSourceResponse;
 import com.appkode.house.services.IncomeSourceService;
 import org.springframework.beans.factory.annotation.Autowired;

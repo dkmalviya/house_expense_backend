@@ -7,11 +7,7 @@ import com.appkode.house.services.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -40,6 +36,12 @@ public  class SecureUserController {
     @PostMapping(value = "/updateProfile")
     public ResponseEntity<UserProfileResponse> updateProfile(@RequestBody @Valid UserProfileRequest userProfileRequest) {
         UserProfileResponse userProfileResponse=userProfileService.updateUserProfile(userProfileRequest);
+        return new ResponseEntity<>(userProfileResponse,HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getUserProfile")
+    public ResponseEntity<UserProfileResponse> getUserProfile() {
+        UserProfileResponse userProfileResponse=userProfileService.getUserDetails();
         return new ResponseEntity<>(userProfileResponse,HttpStatus.OK);
     }
 

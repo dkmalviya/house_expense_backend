@@ -2,10 +2,10 @@ package com.appkode.house.services;
 
 import com.appkode.house.converter.user.UserProfileResponseConverter;
 import com.appkode.house.converter.user.UserResponseConverter;
-import com.appkode.house.error.exception.InvalidArgumentException;
-import com.appkode.house.error.exception.ResourceNotFoundException;
 import com.appkode.house.entity.User;
 import com.appkode.house.entity.UserProfile;
+import com.appkode.house.error.exception.InvalidArgumentException;
+import com.appkode.house.error.exception.ResourceNotFoundException;
 import com.appkode.house.model.request.user.PasswordResetRequest;
 import com.appkode.house.model.request.user.RegisterUserRequest;
 import com.appkode.house.model.request.user.UserProfileRequest;
@@ -126,7 +126,23 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     @Override
     public void resetPassword(PasswordResetRequest passwordResetRequest) {
+        User user = getUser();
+        if (!passwordEncoder.matches(passwordResetRequest.getOldPassword(), user.getPassword())) {
+            throw new InvalidArgumentException("Invalid password");
+        }
 
+        if (passwordEncoder.matches(passwordResetRequest.getNewPassword(), user.getPassword())) {
+            return;
+        }
+
+        user.setPassword(passwordEncoder.encode(passwordResetRequest.getNewPassword()));
+        userRepository.save(user);
+    }
+
+    @Override
+    public Boolean getVerificationStatus() {
+        User user = getUser();
+        return user.isEmailVerified() ;
     }
 
 
@@ -147,10 +163,7 @@ public class UserProfileServiceImpl implements UserProfileService {
         return userResponseConverter.apply(user.get());
     }
 
-    @Override
-    public UserProfileResponse fetchUserProfile() {
-        return null;
-    }
+
 
     @Override
     public boolean userProfileExists(String mobile) {
@@ -225,12 +238,25 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     }
 
-
     @Override
-    public void inviteUser(String email) {
+    public Boolean updateUserProfileStatus(String status) {
 
+        UserProfile userProfile = getUserProfile();
+
+        if(Objects.isNull(userProfile)){
+            return false;
+        }
+        userProfile.setProfileStatus(status);
+        userProfileRepository.save(userProfile);
+        return true;
 
     }
 
-
+    @Override
+    public UserProfileResponse getUserDetails() {
+        User user = getUser();
+        UserProfile userProfile = userProfileRepository.findByEmail(user.getEmail());
+        UserProfileResponse usr = userProfileResponseConverter.apply(userProfile);
+        return usr;
+    }
 }

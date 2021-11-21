@@ -1,10 +1,10 @@
 package com.appkode.house.services;
 
-import com.appkode.house.error.exception.InvalidArgumentException;
-import com.appkode.house.error.exception.ResourceNotFoundException;
 import com.appkode.house.entity.PasswordForgotToken;
 import com.appkode.house.entity.User;
 import com.appkode.house.entity.VerificationToken;
+import com.appkode.house.error.exception.InvalidArgumentException;
+import com.appkode.house.error.exception.ResourceNotFoundException;
 import com.appkode.house.model.event.OnPasswordForgotRequestEvent;
 import com.appkode.house.model.event.OnRegistrationCompleteEvent;
 import com.appkode.house.model.request.user.PasswordForgotValidateRequest;
@@ -54,7 +54,7 @@ public class TokenServiceImpl implements TokenService {
         verificationToken.setExpiryDate(calculateExpiryDate());
         verificationTokenRepository.save(verificationToken);
         eventPublisher.publishEvent(new OnRegistrationCompleteEvent(user, token));
-
+        System.out.println(verificationToken);
         return verificationToken;
     }
 
@@ -76,6 +76,7 @@ public class TokenServiceImpl implements TokenService {
         passwordForgotToken.setToken(token);
         passwordForgotToken.setExpiryDate(calculateExpiryDate());
         passwordForgotTokenRepository.save(passwordForgotToken);
+        System.out.println(token);
 
         eventPublisher.publishEvent(new OnPasswordForgotRequestEvent(user, token));
     }
@@ -97,6 +98,9 @@ public class TokenServiceImpl implements TokenService {
         user.setEmailVerified(true);
         user.setEnable(true);
         verificationTokenRepository.delete(verificationToken);
+
+        System.out.println(verificationToken);
+
         userService.saveUser(user);
     }
 

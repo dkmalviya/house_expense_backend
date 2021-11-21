@@ -1,9 +1,9 @@
 package com.appkode.house.services;
 
 import com.appkode.house.converter.house.HouseResponseConverter;
-import com.appkode.house.error.exception.ResourceNotFoundException;
 import com.appkode.house.entity.Address;
 import com.appkode.house.entity.House;
+import com.appkode.house.error.exception.ResourceNotFoundException;
 import com.appkode.house.model.request.house.HouseRequest;
 import com.appkode.house.model.request.house.HouseSearchRequest;
 import com.appkode.house.model.response.house.HouseResponse;

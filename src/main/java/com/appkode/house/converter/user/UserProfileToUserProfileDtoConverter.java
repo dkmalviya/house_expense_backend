@@ -1,7 +1,7 @@
 package com.appkode.house.converter.user;
 
-import com.appkode.house.model.dto.UserProfileDto;
 import com.appkode.house.entity.UserProfile;
+import com.appkode.house.model.dto.UserProfileDto;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
@@ -21,6 +21,7 @@ public class UserProfileToUserProfileDtoConverter implements Function<UserProfil
         userProfileDto.setActiveProfile(userProfile.isActiveProfile());
         userProfileDto.setMobile(userProfile.getMobile());
         userProfileDto.setImageUrl(userProfile.getImageUrl());
+        userProfileDto.setProfileStatus(userProfile.getProfileStatus());
 
         return userProfileDto;
     }

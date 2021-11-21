@@ -1,7 +1,5 @@
 package com.appkode.house.model.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +16,7 @@ public class UserProfileDto {
     private String lastName;
     private String gender;
     private String maritalStatus;
+    private String profileStatus;
     private boolean isActiveProfile;
     private String mobile;
     private String imageUrl;

@@ -1,9 +1,7 @@
 package com.appkode.house.converter.expesne_category;
 
 import com.appkode.house.entity.ExpenseCategory;
-import com.appkode.house.entity.ExpenseSubCategory;
 import com.appkode.house.model.dto.expense.ExpenseSubCategoryDto;
-import com.appkode.house.model.response.expense_category.ExpenseCategoryResponse;
 import com.appkode.house.model.response.expense_category.ExpenseSubCategoryResponse;
 import org.springframework.stereotype.Component;
 

@@ -10,26 +10,24 @@ import com.appkode.house.model.response.user.UserProfileResponse;
 
 public interface UserProfileService {
     User register(RegisterUserRequest registerUserRequest);
-
     User findByEmail(String email);
     User saveUser(User user);
     User getUser();
+    void resetPassword(PasswordResetRequest passwordResetRequest);
+    Boolean getVerificationStatus();
 
 
 
     boolean createUserProfile(UserProfileRequest userProfileRequest);
     UserProfileResponse updateUserProfile(UserProfileRequest updateUserRequest);
-
-    void inviteUser(String email);
-
+    Boolean updateUserProfileStatus(String status);
     boolean userExists(String email);
     boolean userProfileExists(String mobile);
     UserProfileResponse fetchUser();
-    UserProfileResponse fetchUserProfile();
-
     UserProfile getUserProfile();
     UserProfile getUserProfileById(Long id);
 
+    UserProfileResponse getUserDetails();
 
 
 
@@ -39,7 +37,12 @@ public interface UserProfileService {
 
 
 
-    void resetPassword(PasswordResetRequest passwordResetRequest);
+
+
+
+
+
+
 
 
 

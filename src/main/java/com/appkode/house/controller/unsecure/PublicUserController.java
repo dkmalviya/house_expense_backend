@@ -2,10 +2,7 @@ package com.appkode.house.controller.unsecure;
 
 import com.appkode.house.entity.User;
 import com.appkode.house.entity.VerificationToken;
-import com.appkode.house.model.request.user.PasswordResetRequest;
-import com.appkode.house.model.request.user.RegisterUserRequest;
-import com.appkode.house.model.request.user.UserProfileRequest;
-import com.appkode.house.model.request.user.ValidateEmailRequest;
+import com.appkode.house.model.request.user.*;
 import com.appkode.house.model.response.generic.GenericResponse;
 import com.appkode.house.model.response.user.UserProfileResponse;
 import com.appkode.house.services.TokenService;
@@ -45,6 +42,25 @@ public class PublicUserController extends PublicApiController {
     public ResponseEntity<GenericResponse> validateEmail(@RequestBody @Valid ValidateEmailRequest validateEmailRequest) {
         tokenService.validateEmail(validateEmailRequest.getToken());
         return new ResponseEntity<>(new GenericResponse(0,"Success","Token successfully validated."),HttpStatus.OK);
+
+    }
+
+    @PostMapping(value = "/account/password/forgot")
+    public ResponseEntity<GenericResponse> forgotPasswordRequest(@RequestBody @Valid PasswordForgotRequest passwordForgotRequest) {
+        tokenService.createPasswordResetToken(passwordForgotRequest.getEmail());
+        return new ResponseEntity<>(new GenericResponse(0,"Success","Token sent successfully."),HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/account/password/forgot/validate")
+    public ResponseEntity<GenericResponse> validateForgotPassword(@RequestBody @Valid PasswordForgotValidateRequest passwordForgotValidateRequest) {
+        tokenService.validateForgotPassword(passwordForgotValidateRequest);
+        return new ResponseEntity<>(new GenericResponse(0,"Success","Password changed successfully."),HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/account/password/forgot/confirm")
+    public ResponseEntity<GenericResponse> confirmForgotPassword(@RequestBody @Valid PasswordForgotConfirmRequest passwordForgotConfirmRequest) {
+        tokenService.validateForgotPasswordConfirm(passwordForgotConfirmRequest.getToken());
+        return new ResponseEntity<>(new GenericResponse(0,"Success","Password changed successfully."),HttpStatus.OK);
 
     }
 

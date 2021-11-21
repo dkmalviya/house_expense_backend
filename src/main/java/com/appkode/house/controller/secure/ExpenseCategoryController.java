@@ -2,13 +2,12 @@ package com.appkode.house.controller.secure;
 
 import com.appkode.house.model.request.expense_category.ExpenseCategoryRequest;
 import com.appkode.house.model.request.expense_category.ExpenseSubCategoryRequest;
-import com.appkode.house.model.request.income_source.IncomeSourceRequest;
+import com.appkode.house.model.request.expense_category.FavoriteExpenseRequest;
 import com.appkode.house.model.response.expense_category.ExpenseCategoryResponse;
 import com.appkode.house.model.response.expense_category.ExpenseSubCategoryDetailsResponse;
 import com.appkode.house.model.response.expense_category.ExpenseSubCategoryResponse;
-import com.appkode.house.model.response.income_source.IncomeSourceResponse;
+import com.appkode.house.model.response.expense_category.FavoriteExpenseResponse;
 import com.appkode.house.services.ExpenseCategoryService;
-import com.appkode.house.services.IncomeSourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -56,6 +55,29 @@ public class ExpenseCategoryController {
         ExpenseSubCategoryDetailsResponse expenseSubCategoryDetailsResponse = expenseCategoryService.addExpenseSubCategory(expenseSubCategoryRequest);
 
         return new ResponseEntity<>(expenseSubCategoryDetailsResponse, HttpStatus.OK);
+
+    }
+
+
+    @PostMapping(value = "/addFavoriteExpense")
+    public ResponseEntity<List<FavoriteExpenseResponse>> addFavoriteExpense(@RequestBody List<FavoriteExpenseRequest> expenseRequest) {
+        List<FavoriteExpenseResponse> favoriteExpenseResponses = expenseCategoryService.addFavouriteExpense(expenseRequest);
+        return new ResponseEntity<>(favoriteExpenseResponses, HttpStatus.OK);
+    }
+
+
+    @GetMapping(value = "/getAllFavoriteExpense")
+    public ResponseEntity<List<FavoriteExpenseResponse>> getAllFavoriteExpense() {
+        List<FavoriteExpenseResponse> allFavoriteExpense = expenseCategoryService.findAllFavoriteExpense();
+
+        return new ResponseEntity<>(allFavoriteExpense, HttpStatus.OK);
+
+    }
+
+    @GetMapping(value = "/getAllFavoriteDailyNeeds")
+    public ResponseEntity<List<FavoriteExpenseResponse>> getAllFavoriteDailyNeeds() {
+        List<FavoriteExpenseResponse> allFavoriteExpense = expenseCategoryService.findAllFavoriteDailyNeeds();
+        return new ResponseEntity<>(allFavoriteExpense, HttpStatus.OK);
 
     }
 

@@ -19,6 +19,7 @@ public class UserProfileResponse {
     private boolean isActiveProfile;
     private String mobile;
     private String imageUrl;
+    private String profileStatus;
 
 }
 

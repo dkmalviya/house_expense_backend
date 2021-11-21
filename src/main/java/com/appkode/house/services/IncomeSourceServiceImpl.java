@@ -4,7 +4,6 @@ import com.appkode.house.converter.income_source.IncomeSourceResponseConverter;
 import com.appkode.house.entity.IncomeSource;
 import com.appkode.house.entity.User;
 import com.appkode.house.error.exception.InvalidArgumentException;
-import com.appkode.house.error.exception.ResourceNotFoundException;
 import com.appkode.house.model.request.income_source.IncomeSourceRequest;
 import com.appkode.house.model.response.income_source.IncomeSourceResponse;
 import com.appkode.house.repository.IncomeSourceRepository;

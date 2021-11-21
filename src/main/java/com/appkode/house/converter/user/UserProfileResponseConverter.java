@@ -16,13 +16,14 @@ public class UserProfileResponseConverter implements Function<UserProfile, UserP
         userResponse.setMiddleName(userProfile.getMiddleName());
         userResponse.setLastName(userProfile.getLastName());
         userResponse.setGender(userProfile.getGender());
-        userResponse.setDateOfBirth(userProfile.getDateOfBirth().toString());
         userResponse.setMaritalStatus(userProfile.getMaritalStatus());
         userResponse.setMobile(userProfile.getMobile());
         userResponse.setActiveProfile(userProfile.isActiveProfile());
         userResponse.setNotificationEnable(userProfile.isNotificationEnable());
         userResponse.setImageUrl(userProfile.getImageUrl());
+        userResponse.setProfileStatus(userProfile.getProfileStatus());
         return userResponse;
+
     }
 
       /*  @Override

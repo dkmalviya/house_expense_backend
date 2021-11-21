@@ -53,6 +53,9 @@ public class UserProfile {
     @Column(name = "isactiveprofile")
     private boolean activeProfile;
 
+    @Column(name = "profilestatus")
+    private String profileStatus;
+
     @Column(name = "createdon", insertable = false)
     @Type(type = "timestamp")
     private Date createdOn;

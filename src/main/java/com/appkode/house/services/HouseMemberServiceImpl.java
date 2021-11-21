@@ -2,12 +2,12 @@ package com.appkode.house.services;
 
 import com.appkode.house.converter.house.HouseResponseConverter;
 import com.appkode.house.converter.user.UserProfileToUserProfileDtoConverter;
-import com.appkode.house.error.exception.ResourceNotFoundException;
-import com.appkode.house.model.dto.UserProfileDto;
 import com.appkode.house.entity.House;
 import com.appkode.house.entity.HouseMember;
 import com.appkode.house.entity.User;
 import com.appkode.house.entity.UserProfile;
+import com.appkode.house.error.exception.ResourceNotFoundException;
+import com.appkode.house.model.dto.UserProfileDto;
 import com.appkode.house.model.request.house_member.HouseMemberRequest;
 import com.appkode.house.model.response.house.HouseResponse;
 import com.appkode.house.model.response.house_member.HouseMemberResponse;
