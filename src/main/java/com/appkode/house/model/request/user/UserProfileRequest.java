@@ -12,8 +12,7 @@ public class UserProfileRequest {
     @Size(min = 3, max = 26)
     private String firstName;
 
-    @Pattern(regexp = "^[a-zA-Z\\s]+$")
-    @Size(min = 3, max = 26)
+
     private String middleName;
 
     @Pattern(regexp = "^[a-zA-Z\\s]+$")

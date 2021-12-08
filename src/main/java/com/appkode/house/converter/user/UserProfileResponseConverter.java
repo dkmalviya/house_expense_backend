@@ -10,6 +10,8 @@ import java.util.function.Function;
 public class UserProfileResponseConverter implements Function<UserProfile, UserProfileResponse> {
     @Override
     public UserProfileResponse apply(UserProfile userProfile) {
+
+        System.out.println(userProfile);
         UserProfileResponse userResponse = new UserProfileResponse();
         userResponse.setEmail(userProfile.getEmail());
         userResponse.setFirstName(userProfile.getFirstName());

@@ -31,4 +31,6 @@ public class FavoriteExpense {
     private ExpenseSubCategory expenseSubCategory;
 
 
+
+
 }

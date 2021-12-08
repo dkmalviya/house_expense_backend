@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Data
 @AllArgsConstructor
@@ -15,11 +16,12 @@ public class HouseSearchRequest {
     private String houseNumber;
 
     @Pattern(regexp = "^[a-zA-Z0-9-\\s]+$")
-    private String buildingName;
+    private String societyName;
 
-    @Pattern(regexp = "^[a-zA-Z0-9-\\s]+$")
-    private String area;
+    @Pattern(regexp = "^[0-9-\\s]+$")
+    @Size(min = 6,max = 6)
+    private String pinCode;
 
-    @Pattern(regexp = "^[a-zA-Z0-9-\\s]+$")
-    private String city;
+
+
 }

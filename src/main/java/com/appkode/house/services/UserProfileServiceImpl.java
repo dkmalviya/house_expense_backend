@@ -1,5 +1,6 @@
 package com.appkode.house.services;
 
+import com.appkode.house.constant.AppConstants;
 import com.appkode.house.converter.user.UserProfileResponseConverter;
 import com.appkode.house.converter.user.UserResponseConverter;
 import com.appkode.house.entity.User;
@@ -72,6 +73,14 @@ public class UserProfileServiceImpl implements UserProfileService {
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
         return findByEmail(userName);
     }
+
+
+    @Override
+    public String getUserName(Long userId) {
+        String userName = userProfileRepository.findUserNameByUserId(userId);
+        return userName;
+    }
+
 
 
     @Override
@@ -209,6 +218,13 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
     @Override
+    public UserProfile getUserProfileByMobile(String mobileNumber) {
+        User user = getUser();
+        UserProfile userProfile = userProfileRepository.findByMobile(mobileNumber);
+        return userProfile;
+    }
+
+    @Override
     public UserProfileResponse updateUserProfile(UserProfileRequest userProfileRequest) {
 
         UserProfile userProfile = getUserProfile();
@@ -218,6 +234,37 @@ public class UserProfileServiceImpl implements UserProfileService {
         userProfile.setGender(userProfileRequest.getGender());
         userProfile.setMaritalStatus(userProfileRequest.getMaritalStatus());
         userProfile.setMobile(userProfileRequest.getMobile());
+        //userProfile.setImageUrl("NA");
+        userProfile.setNotificationEnable(true);
+        userProfile.setActiveProfile(true);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date dateObj = sdf.parse(userProfileRequest.getDateOfBirth());
+            userProfile.setDateOfBirth(dateObj);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        UserProfile userProfile1 = userProfileRepository.save(userProfile);
+
+        if (Objects.isNull(userProfile1)) {
+            throw new ResourceNotFoundException("Unable to update user. Please try after some time.");
+        }
+        return userProfileResponseConverter.apply(userProfile);
+
+    }
+
+    @Override
+    public UserProfileResponse newUserProfile(UserProfileRequest userProfileRequest) {
+
+        UserProfile userProfile = getUserProfile();
+        userProfile.setFirstName(userProfileRequest.getFirstName());
+        userProfile.setLastName(userProfileRequest.getLastName());
+        userProfile.setMiddleName(userProfileRequest.getMiddleName());
+        userProfile.setGender(userProfileRequest.getGender());
+        userProfile.setMaritalStatus(userProfileRequest.getMaritalStatus());
+        userProfile.setMobile(userProfileRequest.getMobile());
+        userProfile.setProfileStatus(AppConstants.PROFILE_STAGE_PROFILE_COMPLETED);
         //userProfile.setImageUrl("NA");
         userProfile.setNotificationEnable(true);
         userProfile.setActiveProfile(true);

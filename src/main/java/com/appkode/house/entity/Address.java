@@ -25,6 +25,9 @@ public class Address {
     @Column(name = "buildingname")
     private String buildingName;
 
+    @Column(name = "societyname")
+    private String societyName;
+
     @Column(name = "street")
     private String street;
 

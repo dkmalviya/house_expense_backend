@@ -39,6 +39,13 @@ public  class SecureUserController {
         return new ResponseEntity<>(userProfileResponse,HttpStatus.OK);
     }
 
+    @PostMapping(value = "/newUserProfile")
+    public ResponseEntity<UserProfileResponse> newUserProfile(@RequestBody @Valid UserProfileRequest userProfileRequest) {
+        UserProfileResponse userProfileResponse=userProfileService.newUserProfile(userProfileRequest);
+        return new ResponseEntity<>(userProfileResponse,HttpStatus.OK);
+    }
+
+
     @GetMapping(value = "/getUserProfile")
     public ResponseEntity<UserProfileResponse> getUserProfile() {
         UserProfileResponse userProfileResponse=userProfileService.getUserDetails();

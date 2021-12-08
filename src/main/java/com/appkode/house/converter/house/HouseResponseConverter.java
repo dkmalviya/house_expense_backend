@@ -17,11 +17,10 @@ public class HouseResponseConverter  implements Function<House, HouseResponse> {
         houseResponse.setBuildingName(house.getAddress().getBuildingName());
         houseResponse.setStreet(house.getAddress().getStreet());
         houseResponse.setArea(house.getAddress().getArea());
+        houseResponse.setSocietyName(house.getAddress().getSocietyName());
         houseResponse.setLandmark(house.getAddress().getLandmark());
         houseResponse.setCity(house.getAddress().getCity());
         houseResponse.setPinCode(house.getAddress().getPinCode());
-        houseResponse.setCreatedOn("Hardcode");
-        houseResponse.setUpdatedOn("Hardcode");
         houseResponse.setAddressId(house.getAddress().getId());
         return houseResponse;
     }

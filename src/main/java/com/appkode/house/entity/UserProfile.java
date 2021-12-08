@@ -23,6 +23,9 @@ public class UserProfile {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "userid")
+    private Long userId;
+
     @Column(name = "firstname")
     private String firstName;
 

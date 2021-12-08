@@ -20,11 +20,16 @@ public interface UserProfileService {
 
     boolean createUserProfile(UserProfileRequest userProfileRequest);
     UserProfileResponse updateUserProfile(UserProfileRequest updateUserRequest);
+    UserProfileResponse newUserProfile(UserProfileRequest updateUserRequest);
     Boolean updateUserProfileStatus(String status);
     boolean userExists(String email);
+    String getUserName(Long userId);
+
+
     boolean userProfileExists(String mobile);
     UserProfileResponse fetchUser();
     UserProfile getUserProfile();
+    UserProfile getUserProfileByMobile(String mobileNumber);
     UserProfile getUserProfileById(Long id);
 
     UserProfileResponse getUserDetails();
