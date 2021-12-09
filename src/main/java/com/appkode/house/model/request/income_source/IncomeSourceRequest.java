@@ -11,5 +11,5 @@ public class IncomeSourceRequest {
 
     @NotBlank
     @Size(min = 3, max = 52)
-    private String  incomeSourceName;
+    private String incomeSourceName;
 }

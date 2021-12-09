@@ -1,4 +1,5 @@
 package com.appkode.house.converter.expesne_category;
+
 import com.appkode.house.entity.ExpenseSubCategory;
 import com.appkode.house.model.dto.expense.ExpenseSubCategoryDto;
 import org.springframework.stereotype.Component;
@@ -34,8 +35,8 @@ public class ExpenseSubCategoryResponseListConverter implements Function<List<Ex
     @Override
     public List<ExpenseSubCategoryDto> apply(List<ExpenseSubCategory> expenseSubCategories) {
         List<ExpenseSubCategoryDto> expenseSubCategoryDto = new ArrayList<>();
-        for (ExpenseSubCategory expenseSubCategoryTemp:expenseSubCategories             ) {
-            expenseSubCategoryDto.add(new ExpenseSubCategoryDto(expenseSubCategoryTemp.getId(),expenseSubCategoryTemp.getExpenseSubCategoryName(),expenseSubCategoryTemp.getDescription()));
+        for (ExpenseSubCategory expenseSubCategoryTemp : expenseSubCategories) {
+            expenseSubCategoryDto.add(new ExpenseSubCategoryDto(expenseSubCategoryTemp.getId(), expenseSubCategoryTemp.getExpenseSubCategoryName(), expenseSubCategoryTemp.getDescription()));
         }
 
 

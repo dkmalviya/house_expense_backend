@@ -24,7 +24,7 @@ public class IncomeSourceController {
     public ResponseEntity<List<IncomeSourceResponse>> getAllIncomeSource() {
         List<IncomeSourceResponse> allIncomeSource = incomeSourceService.findAllIncomeSource();
 
-            return new ResponseEntity<>(allIncomeSource, HttpStatus.OK);
+        return new ResponseEntity<>(allIncomeSource, HttpStatus.OK);
 
     }
 

@@ -29,7 +29,7 @@ public class ExpenseCategoryController {
     public ResponseEntity<List<ExpenseCategoryResponse>> getAllIncomeSource() {
         List<ExpenseCategoryResponse> allExpenseCategory = expenseCategoryService.findAllExpenseCategory();
 
-            return new ResponseEntity<>(allExpenseCategory, HttpStatus.OK);
+        return new ResponseEntity<>(allExpenseCategory, HttpStatus.OK);
 
     }
 
@@ -37,7 +37,7 @@ public class ExpenseCategoryController {
     public ResponseEntity<ExpenseSubCategoryResponse> getAllExpenseSubCategory(@PathVariable Long categoryId) {
         ExpenseSubCategoryResponse allExpenseCategory = expenseCategoryService.findAllSubCategory(categoryId);
 
-            return new ResponseEntity<>(allExpenseCategory, HttpStatus.OK);
+        return new ResponseEntity<>(allExpenseCategory, HttpStatus.OK);
 
     }
 

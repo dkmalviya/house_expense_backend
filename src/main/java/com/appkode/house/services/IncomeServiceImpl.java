@@ -5,8 +5,8 @@ import com.appkode.house.entity.Income;
 import com.appkode.house.entity.IncomeSource;
 import com.appkode.house.entity.User;
 import com.appkode.house.error.exception.ResourceNotFoundException;
-import com.appkode.house.model.request.income.IncomeRequest;
 import com.appkode.house.model.request.generic.SearchByDateRequest;
+import com.appkode.house.model.request.income.IncomeRequest;
 import com.appkode.house.model.response.income.IncomeResponse;
 import com.appkode.house.repository.IncomeRepository;
 import com.appkode.house.repository.IncomeSourceRepository;
@@ -46,16 +46,13 @@ public class IncomeServiceImpl implements IncomeService {
     }
 
 
-
-
-
     @Override
     public Double getTotalIncomeByMonth(SearchByDateRequest searchByDateRequest) {
         Double totalAmount = 0.0;
         final User user = userProfileService.getUser();
         List<Income> allIncomeByUserId = incomeRepository.findAllIncomeByUserIdAndCreditDateBetween(user.getId(), UtilFunction.startDateOfMonth(searchByDateRequest.getSearchDate()), UtilFunction.endDateOfMonth(searchByDateRequest.getSearchDate()));
-        for (Income income:allIncomeByUserId) {
-            totalAmount+=income.getAmount();
+        for (Income income : allIncomeByUserId) {
+            totalAmount += income.getAmount();
         }
 
         return totalAmount;
@@ -65,7 +62,7 @@ public class IncomeServiceImpl implements IncomeService {
     public List<IncomeResponse> findAllMyIncomeByMonth(SearchByDateRequest searchByDateRequest) {
         final User user = userProfileService.getUser();
 
-        System.out.println(UtilFunction.startDateOfMonth(searchByDateRequest.getSearchDate())+ " , "+UtilFunction.endDateOfMonth(searchByDateRequest.getSearchDate()));
+        System.out.println(UtilFunction.startDateOfMonth(searchByDateRequest.getSearchDate()) + " , " + UtilFunction.endDateOfMonth(searchByDateRequest.getSearchDate()));
         List<Income> allIncomeByUserId = incomeRepository.findAllIncomeByUserIdAndCreditDateBetween(user.getId(), UtilFunction.startDateOfMonth(searchByDateRequest.getSearchDate()), UtilFunction.endDateOfMonth(searchByDateRequest.getSearchDate()));
         List<IncomeResponse> incomeResponseList = new ArrayList<>();
         for (Income income : allIncomeByUserId) {
@@ -105,7 +102,7 @@ public class IncomeServiceImpl implements IncomeService {
 
     @Override
     public boolean deleteIncome(Long incomeId) {
-        Income income=incomeRepository.findById(incomeId).orElseThrow(()->new ResourceNotFoundException("Income Id not found"));
+        Income income = incomeRepository.findById(incomeId).orElseThrow(() -> new ResourceNotFoundException("Income Id not found"));
         incomeRepository.delete(income);
         return true;
     }

@@ -12,7 +12,7 @@ import java.util.function.Function;
 public class ReminderResponseConverter implements Function<List<Reminder>, List<ReminderResponse>> {
     @Override
     public List<ReminderResponse> apply(List<Reminder> reminders) {
-        List<ReminderResponse> reminderResponseList= new ArrayList<>();
+        List<ReminderResponse> reminderResponseList = new ArrayList<>();
         for (Reminder reminder : reminders) {
             ReminderResponse reminderResponse = new ReminderResponse();
             reminderResponse.setReminderId(reminder.getId());

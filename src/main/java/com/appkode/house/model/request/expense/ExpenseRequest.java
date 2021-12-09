@@ -1,6 +1,7 @@
 package com.appkode.house.model.request.expense;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -8,6 +9,7 @@ import javax.validation.constraints.Size;
 
 
 @Data
+@ToString
 public class ExpenseRequest {
 
     @NotBlank

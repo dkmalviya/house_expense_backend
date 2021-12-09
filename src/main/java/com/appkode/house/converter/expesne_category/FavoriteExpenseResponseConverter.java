@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.function.Function;
 
 @Component
-public class FavoriteExpenseResponseConverter implements Function<List<FavoriteExpense> , List<FavoriteExpenseResponse> > {
+public class FavoriteExpenseResponseConverter implements Function<List<FavoriteExpense>, List<FavoriteExpenseResponse>> {
     @Override
     public List<FavoriteExpenseResponse> apply(List<FavoriteExpense> favoriteExpenses) {
 
-        List<FavoriteExpenseResponse> favoriteExpenseResponses=new ArrayList<>();
+        List<FavoriteExpenseResponse> favoriteExpenseResponses = new ArrayList<>();
 
 
-        for (FavoriteExpense favoriteExpense: favoriteExpenses) {
+        for (FavoriteExpense favoriteExpense : favoriteExpenses) {
             FavoriteExpenseResponse favoriteExpenseResponse = new FavoriteExpenseResponse();
             favoriteExpenseResponse.setFavoriteId(favoriteExpense.getId());
             favoriteExpenseResponse.setExpenseCategoryId(favoriteExpense.getExpenseSubCategory().getExpenseCategory().getId());

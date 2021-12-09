@@ -9,7 +9,10 @@ public interface ReminderService {
 
 
     List<ReminderResponse> getAllReminder();
+
     Boolean addReminder(ReminderRequest reminderRequest);
+
     Boolean updateReminder(ReminderRequest reminderRequest);
+
     Boolean removeReminder(Long reminderId);
 }

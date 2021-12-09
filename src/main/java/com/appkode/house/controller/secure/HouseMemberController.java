@@ -5,7 +5,6 @@ import com.appkode.house.model.request.house_member.AddHouseMemberRequest;
 import com.appkode.house.model.request.house_member.HouseMemberRequest;
 import com.appkode.house.model.request.house_member.HouseMemberSearchRequest;
 import com.appkode.house.model.response.generic.GenericResponse;
-import com.appkode.house.model.response.house.HouseResponse;
 import com.appkode.house.model.response.house_member.HouseMemberResponse;
 import com.appkode.house.services.HouseMemberService;
 import org.springframework.beans.factory.annotation.Autowired;

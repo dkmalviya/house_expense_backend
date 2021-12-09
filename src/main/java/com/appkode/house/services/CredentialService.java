@@ -8,7 +8,10 @@ import java.util.List;
 public interface CredentialService {
 
     List<CredentialResponse> getAllCredentials();
+
     Boolean addCredential(CredentialRequest credentialRequest);
+
     Boolean updateCredential(CredentialRequest credentialRequest);
+
     Boolean removeCredential(Long credentialId);
 }

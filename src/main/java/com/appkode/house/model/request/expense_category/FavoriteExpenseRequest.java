@@ -10,7 +10,7 @@ public class FavoriteExpenseRequest {
 
     @NotBlank
     @Size(min = 1, max = 10)
-    private Long  expenseSubCategoryId;
+    private Long expenseSubCategoryId;
 
     @NotBlank
     private Boolean isDailyNeed;

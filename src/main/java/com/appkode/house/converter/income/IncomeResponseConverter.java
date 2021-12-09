@@ -2,7 +2,6 @@ package com.appkode.house.converter.income;
 
 
 import com.appkode.house.entity.Income;
-import com.appkode.house.entity.IncomeSource;
 import com.appkode.house.model.response.income.IncomeResponse;
 import com.appkode.house.model.response.income_source.IncomeSourceResponse;
 import org.springframework.stereotype.Component;

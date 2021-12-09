@@ -82,7 +82,6 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
 
-
     @Override
     public User register(RegisterUserRequest registerUserRequest) {
         if (userExists(registerUserRequest.getEmail())) {
@@ -115,7 +114,8 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     @Override
     public UserProfile getUserProfileById(Long id) {
-        User user = userRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("User not found"));;
+        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        ;
 
         System.out.println(user);
         UserProfile userProfile = userProfileRepository.findByEmail(user.getEmail());
@@ -151,7 +151,7 @@ public class UserProfileServiceImpl implements UserProfileService {
     @Override
     public Boolean getVerificationStatus() {
         User user = getUser();
-        return user.isEmailVerified() ;
+        return user.isEmailVerified();
     }
 
 
@@ -171,7 +171,6 @@ public class UserProfileServiceImpl implements UserProfileService {
         }
         return userResponseConverter.apply(user.get());
     }
-
 
 
     @Override
@@ -290,7 +289,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 
         UserProfile userProfile = getUserProfile();
 
-        if(Objects.isNull(userProfile)){
+        if (Objects.isNull(userProfile)) {
             return false;
         }
         userProfile.setProfileStatus(status);

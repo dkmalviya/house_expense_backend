@@ -36,5 +36,4 @@ public class ExpenseCategory {
     private Long updatedBy;
 
 
-
 }

@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+
 @ToString
 @Entity
 @NoArgsConstructor
@@ -26,12 +27,6 @@ public class House {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressid")
     private Address address;
-
-
-
-
-
-
 
 
 }

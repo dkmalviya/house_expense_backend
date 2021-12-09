@@ -38,4 +38,4 @@ public class CredentialRequest {
     @Size(min = 3, max = 200)
     private String recoveryEmail;
 
-   }
+}

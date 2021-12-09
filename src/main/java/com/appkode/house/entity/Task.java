@@ -33,15 +33,13 @@ public class Task {
     private boolean isCompleted;
 
     @Column(name = "userid")
-    private Long userId ;
+    private Long userId;
 
     @Column(name = "createdby")
-    private Long createdBy ;
+    private Long createdBy;
 
     @Column(name = "updatedby")
-    private Long updatedBy ;
-
-
+    private Long updatedBy;
 
 
 }

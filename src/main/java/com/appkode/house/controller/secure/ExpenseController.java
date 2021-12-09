@@ -3,10 +3,8 @@ package com.appkode.house.controller.secure;
 
 import com.appkode.house.model.request.expense.ExpenseRequest;
 import com.appkode.house.model.request.generic.SearchByDateRequest;
-import com.appkode.house.model.request.income.IncomeRequest;
 import com.appkode.house.model.response.expense.ExpenseResponse;
 import com.appkode.house.model.response.generic.GenericResponse;
-import com.appkode.house.model.response.income.IncomeResponse;
 import com.appkode.house.services.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

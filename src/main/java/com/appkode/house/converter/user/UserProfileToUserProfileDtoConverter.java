@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 import java.util.function.Function;
 
 @Component
-public class UserProfileToUserProfileDtoConverter implements Function<UserProfile,UserProfileDto > {
+public class UserProfileToUserProfileDtoConverter implements Function<UserProfile, UserProfileDto> {
     @Override
     public UserProfileDto apply(UserProfile userProfile) {
 
-        UserProfileDto userProfileDto=new UserProfileDto();
+        UserProfileDto userProfileDto = new UserProfileDto();
         userProfileDto.setEmail(userProfile.getEmail());
         userProfileDto.setFirstName(userProfile.getFirstName());
         userProfileDto.setMiddleName(userProfile.getMiddleName());

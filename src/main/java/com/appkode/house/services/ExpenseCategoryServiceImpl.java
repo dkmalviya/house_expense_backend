@@ -163,7 +163,7 @@ public class ExpenseCategoryServiceImpl implements ExpenseCategoryService {
 
         User user = userProfileService.getUser();
 
-        final List<FavoriteExpense> allFavoriteExpenses = favoriteExpenseRepository.findAllFavoriteExpenseByUserIdAndIsDailyNeed(user.getId(),true);
+        final List<FavoriteExpense> allFavoriteExpenses = favoriteExpenseRepository.findAllFavoriteExpenseByUserIdAndIsDailyNeed(user.getId(), true);
 
         final List<FavoriteExpenseResponse> favoriteExpenseResponses = favoriteExpenseResponseConverter.apply(allFavoriteExpenses);
         return favoriteExpenseResponses;
@@ -187,7 +187,7 @@ public class ExpenseCategoryServiceImpl implements ExpenseCategoryService {
                     existingFavoriteExpenses,
                     user.getId());
 
-            if(!favoriteExist){
+            if (!favoriteExist) {
                 favoriteExpenseRepository.save(favoriteExpense);
             }
 
@@ -200,7 +200,7 @@ public class ExpenseCategoryServiceImpl implements ExpenseCategoryService {
 
     }
 
-    private Boolean isFavoriteExist(FavoriteExpense favoriteExpense,List<FavoriteExpense>existingFavoriteExpenses,Long userId){
+    private Boolean isFavoriteExist(FavoriteExpense favoriteExpense, List<FavoriteExpense> existingFavoriteExpenses, Long userId) {
         for (FavoriteExpense expense : existingFavoriteExpenses) {
 
             if ((expense.getExpenseSubCategory().getId() == favoriteExpense.getExpenseSubCategory().getId() && expense.getUserId() == userId)) {

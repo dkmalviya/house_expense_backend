@@ -20,7 +20,7 @@ public class PublicUserController extends PublicApiController {
 
     private final UserProfileService userProfileService;
 
-    private final  TokenService tokenService;
+    private final TokenService tokenService;
 
     @Autowired
     public PublicUserController(UserProfileService userProfileService, TokenService tokenService) {
@@ -35,32 +35,32 @@ public class PublicUserController extends PublicApiController {
         VerificationToken emailConfirmToken = tokenService.createEmailConfirmToken(user);
         System.out.println(emailConfirmToken.toString());
 
-        return new ResponseEntity<>(new GenericResponse(0,"Success","User successfully registered."),HttpStatus.OK);
+        return new ResponseEntity<>(new GenericResponse(0, "Success", "User successfully registered."), HttpStatus.OK);
     }
 
     @PostMapping(value = "/account/registration/validate")
     public ResponseEntity<GenericResponse> validateEmail(@RequestBody @Valid ValidateEmailRequest validateEmailRequest) {
         tokenService.validateEmail(validateEmailRequest.getToken());
-        return new ResponseEntity<>(new GenericResponse(0,"Success","Token successfully validated."),HttpStatus.OK);
+        return new ResponseEntity<>(new GenericResponse(0, "Success", "Token successfully validated."), HttpStatus.OK);
 
     }
 
     @PostMapping(value = "/account/password/forgot")
     public ResponseEntity<GenericResponse> forgotPasswordRequest(@RequestBody @Valid PasswordForgotRequest passwordForgotRequest) {
         tokenService.createPasswordResetToken(passwordForgotRequest.getEmail());
-        return new ResponseEntity<>(new GenericResponse(0,"Success","Token sent successfully."),HttpStatus.OK);
+        return new ResponseEntity<>(new GenericResponse(0, "Success", "Token sent successfully."), HttpStatus.OK);
     }
 
     @PostMapping(value = "/account/password/forgot/validate")
     public ResponseEntity<GenericResponse> validateForgotPassword(@RequestBody @Valid PasswordForgotValidateRequest passwordForgotValidateRequest) {
         tokenService.validateForgotPassword(passwordForgotValidateRequest);
-        return new ResponseEntity<>(new GenericResponse(0,"Success","Password changed successfully."),HttpStatus.OK);
+        return new ResponseEntity<>(new GenericResponse(0, "Success", "Password changed successfully."), HttpStatus.OK);
     }
 
     @PostMapping(value = "/account/password/forgot/confirm")
     public ResponseEntity<GenericResponse> confirmForgotPassword(@RequestBody @Valid PasswordForgotConfirmRequest passwordForgotConfirmRequest) {
         tokenService.validateForgotPasswordConfirm(passwordForgotConfirmRequest.getToken());
-        return new ResponseEntity<>(new GenericResponse(0,"Success","Password changed successfully."),HttpStatus.OK);
+        return new ResponseEntity<>(new GenericResponse(0, "Success", "Password changed successfully."), HttpStatus.OK);
 
     }
 

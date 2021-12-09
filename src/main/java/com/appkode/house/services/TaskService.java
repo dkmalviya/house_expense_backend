@@ -8,10 +8,15 @@ import java.util.List;
 public interface TaskService {
 
     List<TaskResponse> findAllTask();
+
     public List<TaskResponse> findAllCompetedTask();
+
     public List<TaskResponse> findAllPendingTask();
-    public Boolean addTask( TaskRequest taskRequest);
+
+    public Boolean addTask(TaskRequest taskRequest);
+
     public List<TaskResponse> updateTaskStatus(List<TaskRequest> taskRequests);
+
     public Boolean removeTask(Long taskId);
 
 }

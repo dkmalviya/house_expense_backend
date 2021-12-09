@@ -51,7 +51,7 @@ public class ReminderController {
         }
     }
 
-    @DeleteMapping (value = "/removeReminder/{reminderId}")
+    @DeleteMapping(value = "/removeReminder/{reminderId}")
     public ResponseEntity<GenericResponse> removeReminder(@PathVariable Long reminderId) {
         Boolean result = reminderService.removeReminder(reminderId);
         if (result) {
@@ -61,7 +61,6 @@ public class ReminderController {
 
         }
     }
-
 
 
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.function.Function;
 
 @Component
-public class HouseResponseConverter  implements Function<House, HouseResponse> {
+public class HouseResponseConverter implements Function<House, HouseResponse> {
 
     @Override
     public HouseResponse apply(House house) {

@@ -76,8 +76,8 @@ public class TaskServiceImpl implements TaskService {
     public List<TaskResponse> updateTaskStatus(List<TaskRequest> taskRequests) {
 
         User user = userProfileService.getUser();
-        for (TaskRequest taskRequest :taskRequests) {
-            Task task = taskRepository.findByIdAndUserId( taskRequest.getTaskId(),user.getId());
+        for (TaskRequest taskRequest : taskRequests) {
+            Task task = taskRepository.findByIdAndUserId(taskRequest.getTaskId(), user.getId());
             task.setPriority(taskRequest.getPriority());
             task.setTaskName(taskRequest.getTaskName());
             task.setUserId(user.getId());
@@ -93,8 +93,8 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Boolean removeTask(Long taskId) {
         User user = userProfileService.getUser();
-        final Task task = taskRepository.findByIdAndUserId( taskId,user.getId());
-        if(Objects.isNull(task)){
+        final Task task = taskRepository.findByIdAndUserId(taskId, user.getId());
+        if (Objects.isNull(task)) {
             return false;
         }
         taskRepository.delete(task);

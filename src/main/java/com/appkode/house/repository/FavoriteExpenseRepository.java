@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Repository
-public interface FavoriteExpenseRepository extends CrudRepository<FavoriteExpense,Long> {
+public interface FavoriteExpenseRepository extends CrudRepository<FavoriteExpense, Long> {
 
     List<FavoriteExpense> findAllFavoriteExpenseByUserId(Long userId);
     /*
@@ -23,6 +23,6 @@ public interface FavoriteExpenseRepository extends CrudRepository<FavoriteExpens
 
     */
 
-        List<FavoriteExpense> findAllFavoriteExpenseByUserIdAndIsDailyNeed(Long userId, Boolean isDailyNeed);
+    List<FavoriteExpense> findAllFavoriteExpenseByUserIdAndIsDailyNeed(Long userId, Boolean isDailyNeed);
 
 }

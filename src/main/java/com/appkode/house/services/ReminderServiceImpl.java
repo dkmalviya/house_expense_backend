@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
-public class ReminderServiceImpl implements ReminderService{
+public class ReminderServiceImpl implements ReminderService {
 
     private final ReminderResponseConverter reminderResponseConverter;
     private final ReminderRepository reminderRepository;
@@ -57,7 +57,7 @@ public class ReminderServiceImpl implements ReminderService{
     @Override
     public Boolean updateReminder(ReminderRequest reminderRequest) {
         User user = userProfileService.getUser();
-        Reminder reminder = reminderRepository.findAllByIdAndUserId( reminderRequest.getReminderId(),user.getId());
+        Reminder reminder = reminderRepository.findAllByIdAndUserId(reminderRequest.getReminderId(), user.getId());
         reminder.setReminderName(reminderRequest.getReminderName());
         reminder.setReminderType(reminderRequest.getReminderType());
         reminder.setReminderOccurrence(reminderRequest.getReminderOccurrence());
@@ -73,8 +73,8 @@ public class ReminderServiceImpl implements ReminderService{
     @Override
     public Boolean removeReminder(Long reminderId) {
         User user = userProfileService.getUser();
-        Reminder reminder = reminderRepository.findAllByIdAndUserId(reminderId,user.getId());
-        if(Objects.isNull(reminder)){
+        Reminder reminder = reminderRepository.findAllByIdAndUserId(reminderId, user.getId());
+        if (Objects.isNull(reminder)) {
             return false;
         }
         reminderRepository.delete(reminder);

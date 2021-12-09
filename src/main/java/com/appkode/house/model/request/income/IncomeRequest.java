@@ -1,13 +1,10 @@
 package com.appkode.house.model.request.income;
 
-import com.appkode.house.entity.IncomeSource;
 import lombok.Data;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Date;
 
 @Data
 public class IncomeRequest {

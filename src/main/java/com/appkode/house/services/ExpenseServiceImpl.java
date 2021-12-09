@@ -4,7 +4,6 @@ package com.appkode.house.services;
 import com.appkode.house.converter.expense.ExpenseResponseConverter;
 import com.appkode.house.entity.Expense;
 import com.appkode.house.entity.ExpenseSubCategory;
-import com.appkode.house.entity.HouseMember;
 import com.appkode.house.entity.User;
 import com.appkode.house.error.exception.ResourceNotFoundException;
 import com.appkode.house.model.request.expense.ExpenseRequest;
@@ -62,8 +61,8 @@ public class ExpenseServiceImpl implements ExpenseService {
         for (Expense expense : allExpenses) {
             ExpenseResponse expenseResponseTemp = expenseResponseConverter.apply(expense);
 
-            String userName=userProfileService.getUserName(expense.getUserId());
-            System.out.println("UserName"+userName);
+            String userName = userProfileService.getUserName(expense.getUserId());
+            System.out.println("UserName" + userName);
             expenseResponseTemp.setCreatedBy(userName);
             expenseResponseTemp.setCreatedById(expense.getUserId());
             expenseResponseList.add(expenseResponseTemp);
@@ -82,15 +81,15 @@ public class ExpenseServiceImpl implements ExpenseService {
         final List<Long> ids = houseMemberRepository.findAllActiveUserIdsByHouseId(houseIdByUserId);
 
 
-        System.out.println("ids"+ids.toString());
+        System.out.println("ids" + ids.toString());
 
         System.out.println(UtilFunction.startDateOfMonth(searchByDateRequest.getSearchDate()) + " , " + UtilFunction.endDateOfMonth(searchByDateRequest.getSearchDate()));
-        List<Expense> allExpenses = expenseRepository.findAllExpenseByIsDeletedAndExpenseDateBetweenAndUserIdIn(false, UtilFunction.startDateOfMonth(searchByDateRequest.getSearchDate()), UtilFunction.endDateOfMonth(searchByDateRequest.getSearchDate()),ids);
+        List<Expense> allExpenses = expenseRepository.findAllExpenseByIsDeletedAndExpenseDateBetweenAndUserIdIn(false, UtilFunction.startDateOfMonth(searchByDateRequest.getSearchDate()), UtilFunction.endDateOfMonth(searchByDateRequest.getSearchDate()), ids);
         List<ExpenseResponse> expenseResponseList = new ArrayList<>();
         for (Expense expense : allExpenses) {
             ExpenseResponse expenseResponseTemp = expenseResponseConverter.apply(expense);
-            String userName=userProfileService.getUserName(expense.getUserId());
-            System.out.println("UserName"+userName);
+            String userName = userProfileService.getUserName(expense.getUserId());
+            System.out.println("UserName" + userName);
             expenseResponseTemp.setCreatedBy(userName);
             expenseResponseTemp.setCreatedById(expense.getUserId());
             expenseResponseList.add(expenseResponseTemp);

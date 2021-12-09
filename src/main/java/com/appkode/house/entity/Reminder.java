@@ -30,21 +30,19 @@ public class Reminder {
     private Date reminderDate;
 
     @Column(name = "reminderoccurrence")
-    private String  reminderOccurrence;
+    private String reminderOccurrence;
 
     @Column(name = "isnotificationenable")
     private boolean isNotificationEnable;
 
     @Column(name = "userid")
-    private Long userId ;
+    private Long userId;
 
     @Column(name = "createdby")
-    private Long createdBy ;
+    private Long createdBy;
 
     @Column(name = "updatedby")
-    private Long updatedBy ;
-
-
+    private Long updatedBy;
 
 
 }

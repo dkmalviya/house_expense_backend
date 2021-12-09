@@ -1,14 +1,11 @@
 package com.appkode.house.utils;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -45,7 +42,7 @@ public class UtilFunction {
                 // create formatter (use English Locale to parse month names)
                 .toFormatter(Locale.ENGLISH);
 
-        LocalDate tempDate = LocalDate.parse(date,df);
+        LocalDate tempDate = LocalDate.parse(date, df);
         Date startDate = Date.from(tempDate.withDayOfMonth(1).atStartOfDay(ZoneId.systemDefault()).toInstant());
         return startDate;
     }
@@ -58,12 +55,11 @@ public class UtilFunction {
                 // create formatter (use English Locale to parse month names)
                 .toFormatter(Locale.ENGLISH);
 
-        LocalDate tempDate = LocalDate.parse(date,df);
+        LocalDate tempDate = LocalDate.parse(date, df);
         Date endDate = Date.from(tempDate.withDayOfMonth(tempDate.lengthOfMonth()).atStartOfDay(ZoneId.systemDefault()).toInstant());
         return endDate;
 
     }
-
 
 
 }

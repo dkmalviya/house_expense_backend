@@ -3,13 +3,10 @@ package com.appkode.house.services;
 import com.appkode.house.converter.house.HouseResponseConverter;
 import com.appkode.house.entity.Address;
 import com.appkode.house.entity.House;
-import com.appkode.house.entity.User;
 import com.appkode.house.error.exception.ResourceNotFoundException;
 import com.appkode.house.model.request.house.HouseRequest;
 import com.appkode.house.model.request.house.HouseSearchRequest;
-import com.appkode.house.model.request.house_member.HouseMemberSearchRequest;
 import com.appkode.house.model.response.house.HouseResponse;
-import com.appkode.house.model.response.user.UserProfileResponse;
 import com.appkode.house.repository.AddressRepository;
 import com.appkode.house.repository.HouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +25,7 @@ public class HouseAddressServiceImpl implements HouseAddressService {
 
 
     @Autowired
-    public HouseAddressServiceImpl(AddressRepository addressRepository, HouseRepository houseRepository,  HouseResponseConverter houseResponseConverter) {
+    public HouseAddressServiceImpl(AddressRepository addressRepository, HouseRepository houseRepository, HouseResponseConverter houseResponseConverter) {
         this.addressRepository = addressRepository;
         this.houseRepository = houseRepository;
         this.houseResponseConverter = houseResponseConverter;
@@ -93,8 +90,6 @@ public class HouseAddressServiceImpl implements HouseAddressService {
         House resultHouse = houseRepository.save(house);
         return houseResponseConverter.apply(resultHouse);
     }
-
-
 
 
     @Override

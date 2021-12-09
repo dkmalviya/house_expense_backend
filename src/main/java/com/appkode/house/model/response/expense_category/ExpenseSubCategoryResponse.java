@@ -8,9 +8,9 @@ import java.util.List;
 @Data
 public class ExpenseSubCategoryResponse {
 
+    List<ExpenseSubCategoryDto> expenseSubCategoryDtoList;
     private Long expenseCategoryId;
     private String expenseCategoryName;
     private String description;
-    List<ExpenseSubCategoryDto> expenseSubCategoryDtoList;
 
 }

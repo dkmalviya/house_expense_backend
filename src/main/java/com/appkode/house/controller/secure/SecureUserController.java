@@ -13,9 +13,10 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/user")
-public  class SecureUserController {
+public class SecureUserController {
 
     private final UserProfileService userProfileService;
+
     @Autowired
     public SecureUserController(UserProfileService userProfileService) {
         this.userProfileService = userProfileService;
@@ -23,33 +24,32 @@ public  class SecureUserController {
 
     @PostMapping(value = "/createProfile")
     public ResponseEntity<GenericResponse> createProfile(@RequestBody @Valid UserProfileRequest userProfileRequest) {
-        boolean createProfileStatus=userProfileService.createUserProfile(userProfileRequest);
-        if(createProfileStatus){
+        boolean createProfileStatus = userProfileService.createUserProfile(userProfileRequest);
+        if (createProfileStatus) {
 
-            return new ResponseEntity<>(new GenericResponse(0,"Success","User profile created successfully"), HttpStatus.OK);
-        }
-        else{
-            return new ResponseEntity<>(new GenericResponse(99,"Failed","Unable to create User profile."), HttpStatus.OK);
+            return new ResponseEntity<>(new GenericResponse(0, "Success", "User profile created successfully"), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(new GenericResponse(99, "Failed", "Unable to create User profile."), HttpStatus.OK);
         }
     }
 
     @PostMapping(value = "/updateProfile")
     public ResponseEntity<UserProfileResponse> updateProfile(@RequestBody @Valid UserProfileRequest userProfileRequest) {
-        UserProfileResponse userProfileResponse=userProfileService.updateUserProfile(userProfileRequest);
-        return new ResponseEntity<>(userProfileResponse,HttpStatus.OK);
+        UserProfileResponse userProfileResponse = userProfileService.updateUserProfile(userProfileRequest);
+        return new ResponseEntity<>(userProfileResponse, HttpStatus.OK);
     }
 
     @PostMapping(value = "/newUserProfile")
     public ResponseEntity<UserProfileResponse> newUserProfile(@RequestBody @Valid UserProfileRequest userProfileRequest) {
-        UserProfileResponse userProfileResponse=userProfileService.newUserProfile(userProfileRequest);
-        return new ResponseEntity<>(userProfileResponse,HttpStatus.OK);
+        UserProfileResponse userProfileResponse = userProfileService.newUserProfile(userProfileRequest);
+        return new ResponseEntity<>(userProfileResponse, HttpStatus.OK);
     }
 
 
     @GetMapping(value = "/getUserProfile")
     public ResponseEntity<UserProfileResponse> getUserProfile() {
-        UserProfileResponse userProfileResponse=userProfileService.getUserDetails();
-        return new ResponseEntity<>(userProfileResponse,HttpStatus.OK);
+        UserProfileResponse userProfileResponse = userProfileService.getUserDetails();
+        return new ResponseEntity<>(userProfileResponse, HttpStatus.OK);
     }
 
 

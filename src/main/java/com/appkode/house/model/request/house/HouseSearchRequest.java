@@ -19,9 +19,8 @@ public class HouseSearchRequest {
     private String societyName;
 
     @Pattern(regexp = "^[0-9-\\s]+$")
-    @Size(min = 6,max = 6)
+    @Size(min = 6, max = 6)
     private String pinCode;
-
 
 
 }

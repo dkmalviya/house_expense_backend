@@ -9,7 +9,9 @@ public interface IncomeSourceService {
 
 
     List<IncomeSourceResponse> findAllIncomeSource();
+
     IncomeSourceResponse addIncomeSource(IncomeSourceRequest incomeSourceRequest);
+
     Boolean isIncomeSourceExists(String name);
 
     boolean deleteIncomeSource(Long id);

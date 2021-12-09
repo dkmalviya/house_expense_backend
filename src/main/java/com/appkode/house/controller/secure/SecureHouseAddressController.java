@@ -1,14 +1,15 @@
 package com.appkode.house.controller.secure;
 
-import com.appkode.house.model.request.house.HouseRequest;
 import com.appkode.house.model.request.house.HouseSearchRequest;
-import com.appkode.house.model.response.generic.GenericResponse;
 import com.appkode.house.model.response.house.HouseResponse;
 import com.appkode.house.services.HouseAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;

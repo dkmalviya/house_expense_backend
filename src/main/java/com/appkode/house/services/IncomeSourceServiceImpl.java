@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class IncomeSourceServiceImpl implements IncomeSourceService{
+public class IncomeSourceServiceImpl implements IncomeSourceService {
 
     private final IncomeSourceRepository incomeSourceRepository;
     private final IncomeSourceResponseConverter incomeSourceResponseConverter;
 
-    private final  UserProfileService userProfileService;
+    private final UserProfileService userProfileService;
 
     @Autowired
     public IncomeSourceServiceImpl(IncomeSourceRepository incomeSourceRepository, IncomeSourceResponseConverter incomeSourceResponseConverter, UserProfileService userProfileService) {
@@ -31,11 +31,11 @@ public class IncomeSourceServiceImpl implements IncomeSourceService{
 
     @Override
     public List<IncomeSourceResponse> findAllIncomeSource() {
-        List<IncomeSourceResponse> incomeSourceResponses=new ArrayList<>();
+        List<IncomeSourceResponse> incomeSourceResponses = new ArrayList<>();
 
         Iterable<IncomeSource> incomeSources = incomeSourceRepository.findAll();
 
-        for (IncomeSource incomeSource:incomeSources) {
+        for (IncomeSource incomeSource : incomeSources) {
             IncomeSourceResponse incomeSourceResponseTemp = incomeSourceResponseConverter.apply(incomeSource);
             incomeSourceResponses.add(incomeSourceResponseTemp);
         }
@@ -45,11 +45,11 @@ public class IncomeSourceServiceImpl implements IncomeSourceService{
     @Override
     public IncomeSourceResponse addIncomeSource(IncomeSourceRequest incomeSourceRequest) {
         Boolean incomeSourceExists = isIncomeSourceExists(incomeSourceRequest.getIncomeSourceName());
-        if(incomeSourceExists){
+        if (incomeSourceExists) {
             throw new InvalidArgumentException("Income Source already Exists");
         }
         User user = userProfileService.getUser();
-        IncomeSource incomeSource=new IncomeSource();
+        IncomeSource incomeSource = new IncomeSource();
         incomeSource.setIncomeSourceName(incomeSourceRequest.getIncomeSourceName());
         incomeSource.setCreatedBy(user.getId());
         incomeSource.setUpdatedBy(user.getId());

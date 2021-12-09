@@ -51,7 +51,7 @@ public class CredentialController {
         }
     }
 
-    @DeleteMapping (value = "/removeCredential/{credentialId}")
+    @DeleteMapping(value = "/removeCredential/{credentialId}")
     public ResponseEntity<GenericResponse> removeCredential(@PathVariable Long credentialId) {
         Boolean result = credentialService.removeCredential(credentialId);
         if (result) {

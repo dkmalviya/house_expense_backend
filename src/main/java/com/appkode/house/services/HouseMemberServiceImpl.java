@@ -14,7 +14,6 @@ import com.appkode.house.model.request.house_member.HouseMemberRequest;
 import com.appkode.house.model.request.house_member.HouseMemberSearchRequest;
 import com.appkode.house.model.response.house.HouseResponse;
 import com.appkode.house.model.response.house_member.HouseMemberResponse;
-import com.appkode.house.model.response.user.UserProfileResponse;
 import com.appkode.house.repository.HouseMemberRepository;
 import com.appkode.house.repository.HouseRepository;
 import com.appkode.house.utils.UtilFunction;
@@ -52,7 +51,7 @@ public class HouseMemberServiceImpl implements HouseMemberService {
 
         User user = userProfileService.getUser();
         House house = houseRepository.findByAddressId(addHouseMemberRequest.getAddressId());
-        if(Objects.isNull(house)){
+        if (Objects.isNull(house)) {
             throw new ResourceNotFoundException("Invalid address id");
         }
         HouseMember houseMember = new HouseMember();

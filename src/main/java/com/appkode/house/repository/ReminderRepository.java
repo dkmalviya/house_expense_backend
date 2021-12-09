@@ -8,8 +8,9 @@ import java.util.List;
 
 
 @Repository
-public interface ReminderRepository extends CrudRepository<Reminder,Long> {
-    Reminder findAllByIdAndUserId(Long reminderId,Long userId);
+public interface ReminderRepository extends CrudRepository<Reminder, Long> {
+    Reminder findAllByIdAndUserId(Long reminderId, Long userId);
+
     List<Reminder> findAllByUserIdOrderByReminderDateAsc(Long userId);
 
 

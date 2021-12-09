@@ -8,13 +8,11 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface IncomeRepository extends CrudRepository<Income,Long> {
+public interface IncomeRepository extends CrudRepository<Income, Long> {
 
     List<Income> findAllIncomeByUserId(Long userId);
+
     List<Income> findAllIncomeByUserIdAndCreditDateBetween(Long userId, Date montStartDate, Date monthEndDate);
-
-
-
 
 
 }

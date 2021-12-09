@@ -11,11 +11,11 @@ public class ExpenseCategoryRequest {
 
     @NotBlank
     @Size(min = 3, max = 52)
-    private String  expenseCategoryName;
+    private String expenseCategoryName;
 
     @NotBlank
     @Size(min = 2, max = 52)
-    private String  description;
+    private String description;
 
 
 }

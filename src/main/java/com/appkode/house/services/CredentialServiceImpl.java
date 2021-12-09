@@ -80,7 +80,7 @@ public class CredentialServiceImpl implements CredentialService {
     public Boolean removeCredential(Long credentialId) {
         User user = userProfileService.getUser();
         Credential credential = credentialRepository.findAllByIdAndUserId(credentialId, user.getId());
-        if(Objects.isNull(credential)){
+        if (Objects.isNull(credential)) {
             return false;
         }
         credentialRepository.delete(credential);

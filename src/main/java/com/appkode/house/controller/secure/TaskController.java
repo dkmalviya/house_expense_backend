@@ -44,10 +44,10 @@ public class TaskController {
     @PostMapping(value = "/updateTask")
     public ResponseEntity<List<TaskResponse>> updateTask(@RequestBody List<TaskRequest> taskRequests) {
         List<TaskResponse> taskResponseList = taskService.updateTaskStatus(taskRequests);
-        return new ResponseEntity<>(taskResponseList,HttpStatus.OK);
+        return new ResponseEntity<>(taskResponseList, HttpStatus.OK);
     }
 
-    @DeleteMapping (value = "/removeTask/{taskId}")
+    @DeleteMapping(value = "/removeTask/{taskId}")
     public ResponseEntity<GenericResponse> removeTask(@PathVariable Long taskId) {
         Boolean result = taskService.removeTask(taskId);
         if (result) {

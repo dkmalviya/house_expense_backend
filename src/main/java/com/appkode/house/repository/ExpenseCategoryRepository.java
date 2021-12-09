@@ -5,11 +5,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ExpenseCategoryRepository extends CrudRepository<ExpenseCategory,Long> {
+public interface ExpenseCategoryRepository extends CrudRepository<ExpenseCategory, Long> {
 
     Boolean existsByExpenseCategoryName(String name);
-
-
 
 
 }

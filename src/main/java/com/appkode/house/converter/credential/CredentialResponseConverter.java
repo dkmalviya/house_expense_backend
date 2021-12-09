@@ -12,7 +12,7 @@ import java.util.function.Function;
 public class CredentialResponseConverter implements Function<List<Credential>, List<CredentialResponse>> {
     @Override
     public List<CredentialResponse> apply(List<Credential> credentials) {
-        List<CredentialResponse> credentialResponseList= new ArrayList<>();
+        List<CredentialResponse> credentialResponseList = new ArrayList<>();
         for (Credential credential : credentials) {
             CredentialResponse credentialResponse = new CredentialResponse();
             credentialResponse.setCredentialId(credential.getId());
