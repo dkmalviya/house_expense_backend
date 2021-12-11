@@ -58,7 +58,6 @@ public class CredentialController {
             return new ResponseEntity<>(new GenericResponse(0, "Success", "Credential deleted successfully."), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(new GenericResponse(99, "Failed", "Unable to delete Credential."), HttpStatus.OK);
-
         }
     }
 
