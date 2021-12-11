@@ -22,6 +22,7 @@ public class Expense {
     @Column(name = "userid")
     private Long userId;
 
+
     @Column(name = "amount")
     private double amount;
 

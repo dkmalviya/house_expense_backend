@@ -99,6 +99,25 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     @Override
+    public List<Expense> findAllHouseExpenseByMonthNativ(SearchByDateRequest searchByDateRequest) {
+
+        final User user = userProfileService.getUser();
+
+        final Long houseIdByUserId = houseMemberRepository.findHouseIdByUserId(user.getId());
+
+        final List<Long> ids = houseMemberRepository.findAllActiveUserIdsByHouseId(houseIdByUserId);
+
+
+        System.out.println("ids" + ids.toString());
+
+        System.out.println(UtilFunction.startDateOfMonth(searchByDateRequest.getSearchDate()) + " , " + UtilFunction.endDateOfMonth(searchByDateRequest.getSearchDate()));
+        List<Expense> allExpenses = expenseRepository.findAllExpenseByIsDeletedAndExpenseDateBetweenAndUserIdIn(false, UtilFunction.startDateOfMonth(searchByDateRequest.getSearchDate()), UtilFunction.endDateOfMonth(searchByDateRequest.getSearchDate()), ids);
+
+        return allExpenses;
+
+    }
+
+    @Override
     public ExpenseResponse addExpense(ExpenseRequest expenseRequest) {
         final User user = userProfileService.getUser();
 

@@ -39,6 +39,7 @@ public class IncomeController {
 
     }
 
+
     @DeleteMapping(value = "/deleteIncome/{id}")
     public ResponseEntity<GenericResponse> addIncome(@PathVariable Long incomeId) {
         Boolean result = incomeService.deleteIncome(incomeId);

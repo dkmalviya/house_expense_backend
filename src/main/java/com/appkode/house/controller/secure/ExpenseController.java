@@ -1,6 +1,7 @@
 package com.appkode.house.controller.secure;
 
 
+import com.appkode.house.entity.Expense;
 import com.appkode.house.model.request.expense.ExpenseRequest;
 import com.appkode.house.model.request.generic.SearchByDateRequest;
 import com.appkode.house.model.response.expense.ExpenseResponse;
@@ -32,6 +33,14 @@ public class ExpenseController {
 
     }
 
+    @PostMapping(value = "/getAllExpenseNativ")
+    public ResponseEntity<List<Expense>> getAllExpenseNativ(@RequestBody SearchByDateRequest searchByDateRequest) {
+        //List<ExpenseResponse> allExpense = expenseService.findAllMyExpenseByMonth(searchByDateRequest);
+        List<Expense> allExpense = expenseService.findAllHouseExpenseByMonthNativ(searchByDateRequest);
+        return new ResponseEntity<>(allExpense, HttpStatus.OK);
+
+    }
+
     @PostMapping(value = "/getAllExpenseOfHouse")
     public ResponseEntity<List<ExpenseResponse>> getAllExpenseOfHouse(@RequestBody SearchByDateRequest searchByDateRequest) {
         List<ExpenseResponse> allExpense = expenseService.findAllHouseExpenseByMonth(searchByDateRequest);
@@ -42,6 +51,8 @@ public class ExpenseController {
 
     @PostMapping(value = "/addExpense")
     public ResponseEntity<ExpenseResponse> addExpense(@RequestBody ExpenseRequest expenseRequest) {
+
+        System.out.println(expenseRequest);
         ExpenseResponse expenseResponse = expenseService.addExpense(expenseRequest);
 
         return new ResponseEntity<>(expenseResponse, HttpStatus.OK);

@@ -7,4 +7,5 @@ public class SearchByDateRequest {
 
     private String searchDate;
 
+
 }
